@@ -41,7 +41,8 @@ class UsersController {
   }
   async getArticles(req, res) {
     try {
-      const { userId } = req.user;
+      const { id } = req.user;
+      const userId = id;
       const user = await User.findByPk(userId, {
         include: {
           model: Selection,
@@ -62,8 +63,9 @@ class UsersController {
     }
   }
   async selectArticle(req, res) {
-    const { articleId } = req.body;
-    const { userId } = req.user;
+    const { articleId } = req.params;
+    const { id } = req.user;
+    const userId = id;
     try {
       const selection = await Selection.create({
         userId,

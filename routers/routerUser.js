@@ -10,16 +10,10 @@ router.post(
   UserRequest,
   UsersController.createUsers
 );
-router.get(
-  "/getArticles",
-  authenticateToken,
-  UserRequest,
-  UsersController.getArticles
-);
+router.get("/getarticles", authenticateToken, UsersController.getArticles);
 router.post(
-  "/selectArticle",
+  "/selectarticle/:articleId",
   authenticateToken,
-  UserRequest,
   UsersController.selectArticle
 );
 module.exports = router;
